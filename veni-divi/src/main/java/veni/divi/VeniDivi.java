@@ -121,11 +121,16 @@ public final class VeniDivi {
         }
     }
 
-    public void reset() {
+    public boolean reset() {
         int backCount = state.size();
-        state.clear();
-        container.removeAllViews();
-        notifyListener(backCount);
+        if (backCount > 0) {
+            state.clear();
+            container.removeAllViews();
+            notifyListener(backCount);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private boolean isVisible() {

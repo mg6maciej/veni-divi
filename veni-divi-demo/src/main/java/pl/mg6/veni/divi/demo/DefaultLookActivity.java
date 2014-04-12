@@ -49,9 +49,15 @@ public class DefaultLookActivity extends Activity {
         int id = item.getItemId();
         switch (id) {
             case android.R.id.home:
-                veniDivi.reset();
+                onHomeClick();
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void onHomeClick() {
+        if (!veniDivi.reset()) {
+            finish();
+        }
     }
 }
