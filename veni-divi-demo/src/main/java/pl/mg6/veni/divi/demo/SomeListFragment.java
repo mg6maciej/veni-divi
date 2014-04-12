@@ -44,9 +44,8 @@ public class SomeListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 CharSequence element = adapter.getItem(position);
-                // casting to concrete Activity class done for brevity
-                // use EventBus or Otto in real code
-                ((FragmentsInBackStackActivity) getActivity()).onElementClick(element);
+                // casting done for brevity, use EventBus or Otto in real code
+                ((OnElementClickListener) getActivity()).onElementClick(element);
             }
         });
         return listView;
@@ -55,7 +54,7 @@ public class SomeListFragment extends Fragment {
     private ArrayList<CharSequence> generateRandomElements() {
         Random r = new Random();
         ArrayList<CharSequence> randomElements = new ArrayList<CharSequence>();
-        int count = r.nextInt(28);
+        int count = 6 + r.nextInt(28);
         for (int i = 0; i < count; i++) {
             randomElements.add(String.format("Element with id [%d]", r.nextInt(10000)));
         }

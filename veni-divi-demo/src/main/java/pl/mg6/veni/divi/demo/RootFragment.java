@@ -23,9 +23,8 @@ public class RootFragment extends Fragment {
         @Override
         public void onClick(View v) {
             CharSequence tag = (CharSequence) v.getTag();
-            // casting to concrete Activity class done for brevity
-            // use EventBus or Otto in real code
-            ((FragmentsInBackStackActivity) getActivity()).onElementClick(tag);
+            // casting done for brevity, use EventBus or Otto in real code
+            ((OnElementClickListener) getActivity()).onElementClick(tag);
         }
     };
 }

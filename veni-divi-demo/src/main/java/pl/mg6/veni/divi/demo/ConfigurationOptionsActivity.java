@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import veni.divi.VeniDivi;
 
-public class FragmentsInBackStackActivity extends Activity implements OnElementClickListener {
+public class ConfigurationOptionsActivity extends Activity implements OnElementClickListener {
 
     private VeniDivi veniDivi;
 
@@ -16,7 +16,11 @@ public class FragmentsInBackStackActivity extends Activity implements OnElementC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragments_in_back_stack_activity);
-        veniDivi = VeniDivi.create(this);
+        veniDivi = VeniDivi.builder(this)
+                //.root(R.layout.title_root)
+                .element(R.layout.custom_element)
+                .hideScrollBar()
+                .build();
         veniDivi.setOnGoBackListener(new VeniDivi.OnGoBackListener() {
             @Override
             public void onGoBack(int backCount) {

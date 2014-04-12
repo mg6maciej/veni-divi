@@ -20,4 +20,8 @@ public class StartActivity extends Activity {
     public void onFragmentsInBackStackClick(View view) {
         startActivity(new Intent(this, FragmentsInBackStackActivity.class));
     }
+
+    public void onConfigurationOptionsClick(View view) {
+        startActivity(new Intent(this, ConfigurationOptionsActivity.class));
+    }
 }

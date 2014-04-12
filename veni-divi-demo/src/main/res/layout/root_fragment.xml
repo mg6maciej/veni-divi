@@ -15,7 +15,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#f00"
-            android:tag="Red" />
+            android:tag="Color: Red"
+            android:text="Click"
+            android:textColor="#000" />
 
         <Button
             android:id="@+id/green_button"
@@ -23,7 +25,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#0f0"
-            android:tag="Green" />
+            android:tag="Color: Green"
+            android:text="one"
+            android:textColor="#000" />
 
     </LinearLayout>
 
@@ -38,7 +42,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#00f"
-            android:tag="Blue" />
+            android:tag="Color: Blue"
+            android:text="of"
+            android:textColor="#fff" />
 
         <Button
             android:id="@+id/yellow_button"
@@ -46,7 +52,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#ff0"
-            android:tag="Yellow" />
+            android:tag="Color: Yellow"
+            android:text="us!"
+            android:textColor="#000" />
 
     </LinearLayout>
 

@@ -16,4 +16,10 @@
         android:onClick="onFragmentsInBackStackClick"
         android:text="Fragments In BackStack" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onConfigurationOptionsClick"
+        android:text="Configuration Options" />
+
 </LinearLayout>
