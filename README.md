@@ -3,6 +3,8 @@ Veni Divi [![Build Status](https://travis-ci.org/mg6maciej/veni-divi.svg?branch=
 
 This is a library for Android that contains sectioned aciton bar title.
 
+[![Veni Divi Demo](http://developer.android.com/images/brand/en_generic_rgb_wo_60.png "Veni Divi Demo")](https://play.google.com/store/apps/details?id=pl.mg6.veni.divi.demo)
+
 ![](http://mg6.pl/veni-divi/images/default_title.png "Title similar to Google Drive Android app")
 ![](http://mg6.pl/veni-divi/images/custom_title.png "Can be customized in many ways")
 
