@@ -30,6 +30,7 @@ public final class VeniDiviBuilder {
     private Activity activity;
     private int element = R.layout.veni_divi_element;
     private Integer separator = null;
+    private Integer root = null;
     private boolean scrollBarEnabled = true;
 
     VeniDiviBuilder(Activity activity) {
@@ -49,12 +50,17 @@ public final class VeniDiviBuilder {
         return this;
     }
 
+    public VeniDiviBuilder root(int rootLayoutId) {
+        this.root = rootLayoutId;
+        return this;
+    }
+
     public VeniDiviBuilder hideScrollBar() {
         this.scrollBarEnabled = false;
         return this;
     }
 
     public VeniDivi build() {
-        return new VeniDivi(activity, element, separator, scrollBarEnabled);
+        return new VeniDivi(activity, element, separator, root, scrollBarEnabled);
     }
 }

@@ -17,7 +17,7 @@ public class ConfigurationOptionsActivity extends Activity implements OnElementC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragments_in_back_stack_activity);
         veniDivi = VeniDivi.builder(this)
-                //.root(R.layout.title_root)
+                .root(R.layout.title_root)
                 .element(R.layout.custom_element)
                 .hideScrollBar()
                 .build();

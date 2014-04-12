@@ -57,16 +57,18 @@ public final class VeniDivi {
     private LayoutInflater inflater;
     private int element;
     private Integer separator;
+    private Integer root;
     private ActionBar actionBar;
     private HorizontalScrollView scrollView;
     private ViewGroup container;
     private ArrayList<CharSequence> state = new ArrayList<CharSequence>();
     private OnGoBackListener listener;
 
-    VeniDivi(Activity activity, int element, Integer separator, boolean scrollBarEnabled) {
+    VeniDivi(Activity activity, int element, Integer separator, Integer root, boolean scrollBarEnabled) {
         inflater = activity.getLayoutInflater();
         this.element = element;
         this.separator = separator;
+        this.root = root;
         actionBar = activity.getActionBar();
         actionBar.setCustomView(R.layout.veni_divi_layout);
         scrollView = (HorizontalScrollView) actionBar.getCustomView();
@@ -78,6 +80,7 @@ public final class VeniDivi {
             }
         });
         container = (ViewGroup) scrollView.findViewById(R.id.veni_divi_container);
+        addRoot();
         setVisible(true);
     }
 
@@ -125,7 +128,13 @@ public final class VeniDivi {
         int backCount = state.size();
         if (backCount > 0) {
             state.clear();
-            container.removeAllViews();
+            if (!hasRoot()) {
+                container.removeAllViews();
+            } else {
+                while (container.getChildCount() > 1) {
+                    container.removeViewAt(1);
+                }
+            }
             notifyListener(backCount);
             return true;
         } else {
@@ -162,8 +171,25 @@ public final class VeniDivi {
         }
     }
 
+    private void addRoot() {
+        if (hasRoot()) {
+            View rootView = inflater.inflate(root, container, false);
+            rootView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    reset();
+                }
+            });
+            container.addView(rootView);
+        }
+    }
+
     private boolean hasSeparators() {
         return separator != null;
+    }
+
+    private boolean hasRoot() {
+        return root != null;
     }
 
     private View.OnClickListener elementClickListener = new View.OnClickListener() {
