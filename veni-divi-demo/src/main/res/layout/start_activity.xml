@@ -2,24 +2,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:clickable="true"
+        android:drawablePadding="4dp"
+        android:drawableTop="@drawable/image_default_look"
+        android:gravity="center"
         android:onClick="onDefaultLookClick"
-        android:text="Default Look" />
+        android:text="Default Look"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:clickable="true"
+        android:drawablePadding="4dp"
+        android:drawableTop="@drawable/image_fragments"
+        android:gravity="center"
         android:onClick="onFragmentsInBackStackClick"
-        android:text="Fragments In BackStack" />
+        android:text="Fragments In BackStack"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:drawablePadding="4dp"
+        android:drawableTop="@drawable/image_configuration_options"
+        android:gravity="center"
         android:onClick="onConfigurationOptionsClick"
-        android:text="Configuration Options" />
+        android:text="Configuration Options"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>
