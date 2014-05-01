@@ -94,7 +94,13 @@ so you can keep your back navigation logic in a single place.
 Gradle
 ------
 
-The library is coming to Maven Central soon.
+The library is available on Maven Central.
+
+```Groovy
+dependencies {
+    compile 'pl.mg6.veni.divi:veni-divi:0.1'
+}
+```
 
 License
 =======
