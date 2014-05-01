@@ -1,0 +1,90 @@
+apply plugin: 'android-library'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.3"
+
+    defaultConfig {
+        minSdkVersion 11
+        targetSdkVersion 19
+        versionCode 1
+        versionName "0.1"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+group = "pl.mg6.veni.divi"
+version = "0.1"
+
+if (project.hasProperty("sonatypeUserName") && project.hasProperty("signing.keyId")) {
+
+    signing {
+        sign configurations.archives
+    }
+
+    task javadocJar(type: Jar) {
+        classifier = 'javadoc'
+    }
+
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.allSource
+    }
+
+    artifacts {
+        archives javadocJar
+        archives sourcesJar
+    }
+
+    uploadArchives.repositories.mavenDeployer {
+
+        beforeDeployment {
+            MavenDeployment deployment -> signing.signPom(deployment)
+        }
+
+        repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2') {
+            authentication(userName: sonatypeUserName, password: sonatypePassword)
+        }
+        snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots') {
+            authentication(userName: sonatypeUserName, password: sonatypePassword)
+        }
+
+        pom.project {
+            name 'Veni Divi'
+            description 'I came, I divided - sectioned action bar title for Android'
+            inceptionYear '2014'
+            url 'https://github.com/mg6maciej/veni-divi'
+            packaging 'aar'
+
+            developers {
+                developer {
+                    name 'Maciej Górski'
+                    id 'mg6maciej'
+                    email 'maciek.gorski@gmail.com'
+                    url 'http://mg6.pl'
+                }
+            }
+
+            licenses {
+                license {
+                    name 'The MIT License (MIT)'
+                    url 'http://opensource.org/licenses/MIT'
+                    distribution 'repo'
+                }
+            }
+
+            scm {
+                url 'https://github.com/mg6maciej/veni-divi'
+                connection 'scm:git:https://github.com/mg6maciej/veni-divi.git'
+                developerConnection 'scm:git:https://github.com/mg6maciej/veni-divi.git'
+            }
+        }
+    }
+}
