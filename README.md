@@ -1,6 +1,8 @@
 Veni Divi [![Build Status](https://travis-ci.org/mg6maciej/veni-divi.svg?branch=develop)](https://travis-ci.org/mg6maciej/veni-divi)
 =========
 
+DEPRECATED: this library uses `Activity.getActionBar` and you may want to switch to `Toolbar`. Feel free to fork this and adjust to new patterns.
+
 This is a library for Android that contains sectioned aciton bar title.
 
 [![Veni Divi Demo](http://developer.android.com/images/brand/en_generic_rgb_wo_60.png "Veni Divi Demo")](https://play.google.com/store/apps/details?id=pl.mg6.veni.divi.demo)
